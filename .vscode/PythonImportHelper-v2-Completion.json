@@ -49,6 +49,14 @@
         "documentation": {}
     },
     {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",
@@ -57,11 +65,11 @@
         "documentation": {}
     },
     {
-        "label": "AppConfig",
-        "importPath": "django.apps",
-        "description": "django.apps",
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
         "isExtraImport": true,
-        "detail": "django.apps",
+        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -73,6 +81,46 @@
         "documentation": {}
     },
     {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
+        "isExtraImport": true,
+        "detail": "django.apps",
+        "documentation": {}
+    },
+    {
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "Cliente",
+        "importPath": "exemplo.models",
+        "description": "exemplo.models",
+        "isExtraImport": true,
+        "detail": "exemplo.models",
+        "documentation": {}
+    },
+    {
+        "label": "Cliente",
+        "importPath": "exemplo.models",
+        "description": "exemplo.models",
+        "isExtraImport": true,
+        "detail": "exemplo.models",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -81,11 +129,19 @@
         "documentation": {}
     },
     {
-        "label": "render",
-        "importPath": "django.shortcuts",
-        "description": "django.shortcuts",
+        "label": "views",
+        "importPath": "exemplo",
+        "description": "exemplo",
         "isExtraImport": true,
-        "detail": "django.shortcuts",
+        "detail": "exemplo",
+        "documentation": {}
+    },
+    {
+        "label": "ListView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
         "documentation": {}
     },
     {
@@ -165,7 +221,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "ROOT_URLCONF = 'core.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "peekOfCode": "ROOT_URLCONF = 'core.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [os.path.join(BASE_DIR, 'templates')],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -174,7 +230,7 @@
         "kind": 5,
         "importPath": "core.settings",
         "description": "core.settings",
-        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [os.path.join(BASE_DIR, 'templates')],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
         "detail": "core.settings",
         "documentation": {}
     },
@@ -278,12 +334,66 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "exemplo.migrations.0001_initial",
+        "description": "exemplo.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Cliente',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('nome', models.CharField(max_length=30)),",
+        "detail": "exemplo.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
         "label": "ExemploConfig",
         "kind": 6,
         "importPath": "exemplo.apps",
         "description": "exemplo.apps",
         "peekOfCode": "class ExemploConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'exemplo'",
         "detail": "exemplo.apps",
+        "documentation": {}
+    },
+    {
+        "label": "ClienteForm",
+        "kind": 6,
+        "importPath": "exemplo.forms",
+        "description": "exemplo.forms",
+        "peekOfCode": "class ClienteForm(forms.ModelForm):\n    class Meta: \n        model = Cliente\n        fields = '__all__'",
+        "detail": "exemplo.forms",
+        "documentation": {}
+    },
+    {
+        "label": "Cliente",
+        "kind": 6,
+        "importPath": "exemplo.models",
+        "description": "exemplo.models",
+        "peekOfCode": "class Cliente(models.Model):\n    nome = models.CharField(max_length=30)\n    idade = models.IntegerField(blank=True, null=True)\n    def __str__(self):\n        return self.nome",
+        "detail": "exemplo.models",
+        "documentation": {}
+    },
+    {
+        "label": "app_name",
+        "kind": 5,
+        "importPath": "exemplo.urls",
+        "description": "exemplo.urls",
+        "peekOfCode": "app_name = 'exemplo'\nurlspatterns = [\n    path('list', views.ClienteList.as_view(), name='exemplo_list')\n]",
+        "detail": "exemplo.urls",
+        "documentation": {}
+    },
+    {
+        "label": "urlspatterns",
+        "kind": 5,
+        "importPath": "exemplo.urls",
+        "description": "exemplo.urls",
+        "peekOfCode": "urlspatterns = [\n    path('list', views.ClienteList.as_view(), name='exemplo_list')\n]",
+        "detail": "exemplo.urls",
+        "documentation": {}
+    },
+    {
+        "label": "ClienteList",
+        "kind": 6,
+        "importPath": "exemplo.views",
+        "description": "exemplo.views",
+        "peekOfCode": "class ClienteList(ListaView):\n    model = Cliente\n    queryset = Cliente.objects.all()",
+        "detail": "exemplo.views",
         "documentation": {}
     },
     {

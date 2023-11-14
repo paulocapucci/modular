@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.views.generic import ListView
+from exemplo.models import Cliente
 
-# Create your views here.
+class ClienteList(ListaView):
+    model = Cliente
+    queryset = Cliente.objects.all()

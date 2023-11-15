@@ -25,6 +25,30 @@
         "documentation": {}
     },
     {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -38,22 +62,6 @@
         "description": "django.contrib",
         "isExtraImport": true,
         "detail": "django.contrib",
-        "documentation": {}
-    },
-    {
-        "label": "path",
-        "importPath": "django.urls",
-        "description": "django.urls",
-        "isExtraImport": true,
-        "detail": "django.urls",
-        "documentation": {}
-    },
-    {
-        "label": "path",
-        "importPath": "django.urls",
-        "description": "django.urls",
-        "isExtraImport": true,
-        "detail": "django.urls",
         "documentation": {}
     },
     {
@@ -320,7 +328,7 @@
         "kind": 5,
         "importPath": "core.urls",
         "description": "core.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('clientes/', include('exemplo.urls')),\n]",
         "detail": "core.urls",
         "documentation": {}
     },
@@ -374,16 +382,16 @@
         "kind": 5,
         "importPath": "exemplo.urls",
         "description": "exemplo.urls",
-        "peekOfCode": "app_name = 'exemplo'\nurlspatterns = [\n    path('list', views.ClienteList.as_view(), name='exemplo_list')\n]",
+        "peekOfCode": "app_name = 'exemplo'\nurlpatterns = [\n    path('', views.ClienteList.as_view(), name='list')\n]",
         "detail": "exemplo.urls",
         "documentation": {}
     },
     {
-        "label": "urlspatterns",
+        "label": "urlpatterns",
         "kind": 5,
         "importPath": "exemplo.urls",
         "description": "exemplo.urls",
-        "peekOfCode": "urlspatterns = [\n    path('list', views.ClienteList.as_view(), name='exemplo_list')\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.ClienteList.as_view(), name='list')\n]",
         "detail": "exemplo.urls",
         "documentation": {}
     },
@@ -392,7 +400,7 @@
         "kind": 6,
         "importPath": "exemplo.views",
         "description": "exemplo.views",
-        "peekOfCode": "class ClienteList(ListaView):\n    model = Cliente\n    queryset = Cliente.objects.all()",
+        "peekOfCode": "class ClienteList(ListView):\n    model = Cliente\n    queryset = Cliente.objects.all()",
         "detail": "exemplo.views",
         "documentation": {}
     },

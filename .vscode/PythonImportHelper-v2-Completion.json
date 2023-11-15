@@ -49,6 +49,14 @@
         "documentation": {}
     },
     {
+        "label": "reverse_lazy",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -145,7 +153,47 @@
         "documentation": {}
     },
     {
+        "label": "ClienteCreate",
+        "importPath": "exemplo.views",
+        "description": "exemplo.views",
+        "isExtraImport": true,
+        "detail": "exemplo.views",
+        "documentation": {}
+    },
+    {
         "label": "ListView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "CreateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "DetailView",
+        "importPath": "django.views.generic",
+        "description": "django.views.generic",
+        "isExtraImport": true,
+        "detail": "django.views.generic",
+        "documentation": {}
+    },
+    {
+        "label": "DeleteView",
         "importPath": "django.views.generic",
         "description": "django.views.generic",
         "isExtraImport": true,
@@ -382,7 +430,7 @@
         "kind": 5,
         "importPath": "exemplo.urls",
         "description": "exemplo.urls",
-        "peekOfCode": "app_name = 'exemplo'\nurlpatterns = [\n    path('', views.ClienteList.as_view(), name='list')\n]",
+        "peekOfCode": "app_name = 'exemplo'\nurlpatterns = [\n    path('', views.ClienteList.as_view(), name='list'),\n    path('create/', views.ClienteCreate.as_view(), name='create'),\n    path('update/<int:pk>/', views.ClienteUpdate.as_view(), name='update'),\n    path('delete/<int:pk>/', views.ClienteDelete.as_view(), name='delete'),\n    path('detail/<int:pk>/', views.ClienteDetail.as_view(), name='detail'),\n]",
         "detail": "exemplo.urls",
         "documentation": {}
     },
@@ -391,7 +439,7 @@
         "kind": 5,
         "importPath": "exemplo.urls",
         "description": "exemplo.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.ClienteList.as_view(), name='list')\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.ClienteList.as_view(), name='list'),\n    path('create/', views.ClienteCreate.as_view(), name='create'),\n    path('update/<int:pk>/', views.ClienteUpdate.as_view(), name='update'),\n    path('delete/<int:pk>/', views.ClienteDelete.as_view(), name='delete'),\n    path('detail/<int:pk>/', views.ClienteDetail.as_view(), name='detail'),\n]",
         "detail": "exemplo.urls",
         "documentation": {}
     },
@@ -400,7 +448,43 @@
         "kind": 6,
         "importPath": "exemplo.views",
         "description": "exemplo.views",
-        "peekOfCode": "class ClienteList(ListView):\n    model = Cliente\n    queryset = Cliente.objects.all()",
+        "peekOfCode": "class ClienteList(ListView):\n    model = Cliente\n    queryset = Cliente.objects.all()\n# -----------------------------\nclass ClienteCreate(CreateView):\n    model = Cliente\n    fields = '__all__'\n    success_url = reverse_lazy('exemplo:list')\n# -----------------------------\nclass ClienteUpdate(UpdateView):",
+        "detail": "exemplo.views",
+        "documentation": {}
+    },
+    {
+        "label": "ClienteCreate",
+        "kind": 6,
+        "importPath": "exemplo.views",
+        "description": "exemplo.views",
+        "peekOfCode": "class ClienteCreate(CreateView):\n    model = Cliente\n    fields = '__all__'\n    success_url = reverse_lazy('exemplo:list')\n# -----------------------------\nclass ClienteUpdate(UpdateView):\n    model = Cliente\n    fields = '__all__'\n    success_url = reverse_lazy('exemplo:list')    \n# -----------------------------",
+        "detail": "exemplo.views",
+        "documentation": {}
+    },
+    {
+        "label": "ClienteUpdate",
+        "kind": 6,
+        "importPath": "exemplo.views",
+        "description": "exemplo.views",
+        "peekOfCode": "class ClienteUpdate(UpdateView):\n    model = Cliente\n    fields = '__all__'\n    success_url = reverse_lazy('exemplo:list')    \n# -----------------------------\nclass ClienteDelete(DeleteView):\n    model = Cliente\n    fields = '__all__'\n    success_url = reverse_lazy('exemplo:list')    \n# -----------------------------",
+        "detail": "exemplo.views",
+        "documentation": {}
+    },
+    {
+        "label": "ClienteDelete",
+        "kind": 6,
+        "importPath": "exemplo.views",
+        "description": "exemplo.views",
+        "peekOfCode": "class ClienteDelete(DeleteView):\n    model = Cliente\n    fields = '__all__'\n    success_url = reverse_lazy('exemplo:list')    \n# -----------------------------\nclass ClienteDetail(DetailView):\n    queryset = Cliente.objects.all()\n# -----------------------------",
+        "detail": "exemplo.views",
+        "documentation": {}
+    },
+    {
+        "label": "ClienteDetail",
+        "kind": 6,
+        "importPath": "exemplo.views",
+        "description": "exemplo.views",
+        "peekOfCode": "class ClienteDetail(DetailView):\n    queryset = Cliente.objects.all()\n# -----------------------------",
         "detail": "exemplo.views",
         "documentation": {}
     },

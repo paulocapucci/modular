@@ -1,1 +1,23 @@
-OI
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de CLientes</title>
+</head>
+<body>
+
+    <h1>Lista de clientes</h1>
+    <input type="submit" value="Criar novo usuário" onclick="location.href = '{% url 'exemplo:create' %}'">
+    <ul>
+        {% for cliente in object_list %}
+            <li>{{ cliente.nome }} - 
+                <a href="{% url 'exemplo:update' pk=cliente.id %}">Editar</a> - 
+                <a href="{% url 'exemplo:delete' pk=cliente.id %}">Excluir</a> - 
+                <a href="{% url 'exemplo:detail' pk=cliente.id %}">Visualizar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>
